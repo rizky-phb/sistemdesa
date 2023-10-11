@@ -1,0 +1,386 @@
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <title>sistemdesa</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/img/warjok.jpg">
+    <link href="../static/dist/css/style.min.css" rel="stylesheet">
+    <style type="text/css">
+        .text-yellow {
+            color: #FFFF00 !important;
+        }
+    </style>
+    <style type="text/css" id="operaUserStyle"></style>
+    <style type="text/css">
+        .jqstooltip {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            visibility: hidden;
+            background: rgb(0, 0, 0) transparent;
+            background-color: rgba(0, 0, 0, 0.6);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+            white-space: nowrap;
+            padding: 5px;
+            border: 1px solid white;
+            z-index: 10000;
+        }
+
+        .jqsfield {
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body style="background-color: #e6f4ff;">
+
+
+    <!-- ============================================================= -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================= -->
+    <header class="topbar" data-navbarbg="skin6">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <img src="../static/image/logo.png" alt="logo-icon" style="width: 50px; height: 30px;">
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <!-- ============================================================== -->
+                <!-- toggle and nav items -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- Right side toggle and nav items -->
+                <!-- ============================================================== -->
+
+                <ul class="navbar-nav  navbar-right">
+                    <li class="nav-item">
+                        <a href="/">
+                            <button id="btnGroupDrop1" type="button"
+                                class=" dropdown-item btn text-secondary font-weight-medium dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Beranda
+                            </button>
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupVerticalDrop2" type="button"
+                                class="dropdown-item btn text-secondary font-weight-medium dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Profil Desa ▼
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">SEJARAH & MONOGRAFI DESA</a>
+                                <a class="dropdown-item" href="#">VIDEO PROFIL DESA</a>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- Messages -->
+                        <!-- ============================================================== -->
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button"
+                                class="dropdown-item btn text-secondary font-weight-medium dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Pemerintahan ▼
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">VISI DAN MISI</a>
+                                <a class="dropdown-item" href="#">PEMERINTAH DESA</a>
+                                <a class="dropdown-item" href="#">BADAN PERMUSYAWARATAN DESA</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button"
+                                class="dropdown-item btn text-secondary font-weight-medium dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                PPID Desa ▼
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">INFORMASI WAJIB BERKALA</a>
+                                <a class="dropdown-item" href="#">INFORMASI TERSEDIA SETIAP SAAT</a>
+                                <a class="dropdown-item" href="#">INFORMASI DIKECUALIKAN</a>
+                                <a class="dropdown-item" href="#">KELEMBAGAAN</a>
+                                <a class="dropdown-item" href="#">PELAYANAN INFORMASI</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button"
+                                class="dropdown-item btn text-secondary font-weight-medium dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                JDIH Desa ▼
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">SEJARAH JDIH</a>
+                                <a class="dropdown-item" href="#">PERATURAN DESA</a>
+                                <a class="dropdown-item" href="#">PERATURAN KEPALA DESA</a>
+                                <a class="dropdown-item" href="#">KEPUTUSAN KEPALA DESA</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button"
+                                class="dropdown-item btn text-secondary font-weight-medium dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dana Desa ▼
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">TAHUN ANGGARAN 2021</a>
+                                <a class="dropdown-item" href="#">TAHUN ANGGARAN 2022</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button"
+                                class="dropdown-item btn text-secondary font-weight-medium dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Peta Desa
+                            </button>
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button"
+                                class="dropdown-item btn text-secondary font-weight-medium dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Data Desa ▼
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">DATA WILAYAH ADMINISTRATIF</a>
+                                <a class="dropdown-item" href="#">DATA PEKERJAAN</a>
+                                <a class="dropdown-item" href="#">DATA AGAMA</a>
+                                <a class="dropdown-item" href="#">DATA JENIS KELAMIN</a>
+                                <a class="dropdown-item" href="#">DATA WARGA NEGARA</a>
+                                <a class="dropdown-item" href="#">DATA CALON PEMILIH</a>
+                                <a class="dropdown-item" href="#">KELAS SOSIAL KELUARGA</a>
+                                <a class="dropdown-item" href="#">DATA PENDIDIKAN DALAM KK</a>
+                                <a class="dropdown-item" href="#">DATA PENDIDIKAN DITEMPUH</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button"
+                                class="dropdown-item btn text-secondary font-weight-medium dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Galeri Foto
+                            </button>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button"
+                                class="dropdown-item btn text-secondary font-weight-medium dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Agenda
+                            </button>
+
+                        </div>
+                    </li>
+                    <!-- ============================================================== -->
+                    <!-- End Messages -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Comment -->
+                    <!-- ============================================================== -->
+
+                    <!-- ============================================================== -->
+                    <!-- End Comment -->
+                    <!-- ============================================================== -->
+
+                    <!-- ============================================================== -->
+                    <!-- Profile -->
+                    <!-- ============================================================== -->
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-titles">
+        <div class="row">
+            <div class="col-lg-8 col-md-6 col-12 align-self-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 d-flex align-items-center">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="link"><i class="ri-home-3-line fs-5"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">homepage</li>
+                    </ol>
+                </nav>
+                <h1 class="mb-0 fw-bold">Berita terkini</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                {% for i in info_list :%}
+                <div class="card">
+                    <a href="/berita/{{i.judul}}">
+                        <div class="card-body">
+                            <div class="d-flex no-block white-space align-items-center mb-3">
+                                <img class="card-img img-responsive " src="../../static/image/{{i.gambar}}"
+                                    alt="Card image cap" style="width: 300px; height: 200px;" />
+                                <div style="width: 10px;"></div>
+                                <div class="align-items-center " style="height: 100%;">
+                                    <span class="d-flex "><i data-feather="calendar"
+                                            class="feather-sm me-1"></i>{{i.tanggal}}</span>
+
+                                    <h3 class="font-weight-medium">{{i.judul}}</h3>
+                                    <p class="mb-0 mt-2 text-muted">{{i.deskripsi|safe}}</p>
+                                </div>
+                            </div>
+
+                            <!---->
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+            <div class="col-lg-4 mt-4 mt-md-0">
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <img src="../static/image/logo.png" style="width: 150px; height: 100px;"
+                                alt="logo admin"><br><br>
+                        </center>
+                        <h4>Sistem Informasi desa bogares lor</h4>
+                        <p><strong>Desa Bogares Lor</strong> berada di kecamatan Pangkah Kab. Tegal, dengan sebagian
+                            besar penduduknya sebagai Perindustrian/jasa menjadikan desa Bogares Lor memiliki potensi
+                            wisata .</p><br>
+                        <p>Dengan luas wilayah 62.98 m<sup>2</sup> ini populasinya dianggap cukup karena dari total
+                            penduduk sebesar 2950, terbagi para laki-laki di Bogares Lor sebanyak 1474 orang dan 1476
+                            sisanya wanita.</p><br>
+                        <br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="text-uppercase">Kontak Bantuan</h4>
+                        <hr>
+                        <h4 class="d-flex align-item-center">
+                            <i class="ri-smartphone-line"></i> 081227589209
+                        </h4>
+                        <small>Please contact with us if you have any questions. We are
+                            avalible 24h.</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid row">
+        <h1 class="mb-0 fw-bold">Peta Wilayah Desa</h1>
+        <div class="col-lg-12">
+        </div>
+    </div>
+    <iframe style="margin-top:32px;"
+        src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Bogares Lor&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+        width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    <footer class="footer ">
+        <div class="footer">
+            <div class="footer-top">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="footer-left">
+                            <div class="footer-title">Tentang Desa Bogares Lor</div>
+                            <p style="text-align:justify">Desa Bogares Lor merupakan desa yang memberi pelayanan publik
+                                secara cepat dan efisien. Dengan mengedepankan pelayanan dan pengolahan data berbasis
+                                IT, Desa Bogares Lor diharapkan dapat berkembang menjadi yang lebih maju dalam berbagai
+                                aspek baik itu SDM, Kesehatan, Kesejahteraan dan Ekonomi. Dengan Portal Desa Digital
+                                semua pelayanan menjadi lebih baik.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-center">
+                            <div class="logo-footer">
+                                <a href="#" target="_blank"><img src="../static/image/logo.png" alt="Logo Desa"
+                                        width="100"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-right">
+                            <div class="footer-title">Kontak Desa Bogares Lor</div>
+                            <ul style="list-style: none;">
+                                <li style="text-align: left; "><i class="fa fa-map-marker"></i> &nbsp;Jalan Raya Bogares Lor-Balamoa-Slawi, Km 2,5
+                                    Kecamatan Pangkah Kabupaten Tegal Jawa Tengah Kodepos
+                                    52471 </li>
+                                <li style="text-align: left; "> <i class="fa fa-phone"></i> &nbsp;Telepon : </li>
+                                <li style="text-align: left; "><i class="fa fa-envelope"></i>
+                                    Email : pemdesboglor@gmail.com</li>
+                                <li style="text-align: left; "><i class="fa fa-globe"></i> &nbsp;https://bogareslor.id</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-footer">
+                    <a href="https://www.facebook.com/danu.nimbuzz" target="_blank"
+                        class="scl-btn scl-crcl shadow fa fa-facebook"></a>
+                    <a href="https://api.whatsapp.com/send?phone=62816599941" target="_blank"
+                        class="scl-btn scl-crcl shadow fa fa-whatsapp"></a>
+                </div>
+            </div>
+        </div>
+        2023© All Rights Reserved
+    </footer>
+    <script src="../static/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../static/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/dist/js/app.min.js"></script>
+    <script src="../static/dist/js/app.init.stylish.js"></script>
+    <script src="../static/dist/js/app-style-switcher.js"></script>
+    <script src="../static/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../static/assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="../static/dist/js/waves.js"></script>
+    <script src="../static/dist/js/sidebarmenu.js"></script>
+    <script src="../static/dist/js/feather.min.js"></script>
+    <script src="../static/dist/js/custom.min.js"></script>
+    <script>
+        var paket = "";
+        $("input").on("click", function () {
+            console.log($("input:checked").val() + " is checked!");
+            var paket = $("input:checked").val();
+        });
+        function send() {
+            var email = $("#email").val();
+            var pswd = $("#pswd").val();
+            var reqhero = $("#reqhero").val();
+            var catatan = $("#catatan").val();
+            var userid = $("#userid").val();
+            var loginmethod = $("#loginvia").val();
+            var paket = $("input:checked").val();
+            console.log(email, pswd, reqhero, catatan, userid, loginmethod, paket)
+            var url = "https://wa.me/6281227589209?text=email:%20" + email + "%0D%0Apassword:%20" + pswd + "%0D%0ARequest%20Hero:%20" + reqhero + "%0D%0ACatatan:%20" + catatan + "%0D%0AUser%20ID%20dan%20Nick%20Name:%20" + userid + "%0D%0ALogin%20Via:%20" + loginmethod + "%0D%0APaket:%20" + paket
+            window.open(url, '_blank');
+        }
+    </script>
+
+
+</body>
+
+</html>
