@@ -5,7 +5,7 @@ import textwrap
 from PIL import Image
 from io import BytesIO
 import locale
-
+##======================================================== halaman user ===============================================================
 @app.route('/')
 def homepage():
     con = mysql.connection.cursor()
@@ -25,7 +25,43 @@ def homepage():
         }
         info_list.append(list_data)
     return render_template('homepage.html',info_list = info_list)
-
+@app.route('/berita/<judul>')
+def detail_berita(judul):
+    con = mysql.connection.cursor()
+    con.execute("SELECT * FROM berita where judul = %s order by id DESC " , (judul,))
+    berita = con.fetchall()
+    info_list = []
+    for sistem in berita:
+        des = str(sistem[3])
+        des = textwrap.shorten(des,width=75, placeholder="...")
+        list_data = {
+            'id': str(sistem[0]),
+            'judul': str(sistem[1]),
+            'gambar': str(sistem[2]),
+            'deskripsi': des,
+            'deskripsifull': str(sistem[3]),
+            'tanggal': str(sistem[4])
+        }
+        info_list.append(list_data)
+    return render_template('detail_berita.html',info_list = info_list)
+@app.route('/sejarah')
+def sejarah():
+    con = mysql.connection.cursor()
+    con.execute("SELECT * FROM sejarah_desa")
+    sejarah = con.fetchall()
+    print(sejarah)
+    info_list = []
+    for sistem in sejarah:
+        print(sistem)
+        list_data = {
+            'id': str(sistem[0]),
+            'sejarah': str(sistem[1]),
+            'visi': str(sistem[2]),
+            'misi': sistem[3].split('","')
+        }
+        info_list.append(list_data)
+    return render_template("sejarah.html", info_list = info_list)
+##=================================================== halaman admin =============================================================================
 @app.route('/admin')
 def admin():
     return render_template("admin/login.html")
