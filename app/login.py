@@ -17,7 +17,7 @@ def login():
         con = mysql.connection.cursor()
         con.execute("SELECT * FROM user_admin WHERE username = %s",(username,))
         users = con.fetchone()
-        
+        print(hashpw(password.encode('utf-8'), gensalt()).decode('utf-8'))
         if users is not None and len(users) > 0:
             if users and check_password(users[2], password):
                 session['user_id'] = users[0]

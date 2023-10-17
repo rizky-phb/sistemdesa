@@ -29,6 +29,11 @@ def get_berita():
 def tambah_berita():
     con = mysql.connection.cursor()
     judul = request.form['judul']
+    link = judul
+    link = link.replace("#", "")
+    link = link.replace("?", "")
+    link = link.replace("/", "")
+    link = link.replace(" ", "_")
     file = request.files['gambar']
     if file:
             img = Image.open(file)
@@ -47,7 +52,7 @@ def tambah_berita():
             
             # Gunakan img_io atau file yang telah diresize sesuai kebutuhan Anda
     deskripsi = request.form['deskripsi']
-    con.execute("INSERT INTO berita (judul, gambar , deskripsi ) VALUES (%s,%s,%s)",(judul,random_name,deskripsi))
+    con.execute("INSERT INTO berita (judul, gambar , deskripsi,link ) VALUES (%s,%s,%s)",(judul,random_name,deskripsi,link))
     mysql.connection.commit()
     return jsonify("msg : SUKSES")
 

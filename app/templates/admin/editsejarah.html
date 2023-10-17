@@ -81,7 +81,10 @@
             theme: "snow",
           });
         $( "#submit" ).on( "click", function() {
-            var value = quill.container.innerHTML
+            var value = quill.root.innerHTML
+            //var content = quill.getContents()
+            //var contenthtml = content
+            //console.log(quill.getContents())
             console.log(String(value))
             var formData = {
                 sejarah: String(value)

@@ -5,6 +5,7 @@ import textwrap
 from PIL import Image
 from io import BytesIO
 import locale
+import urllib.parse
 ##======================================================== halaman user ===============================================================
 @app.route('/')
 def homepage():
@@ -15,20 +16,22 @@ def homepage():
     for sistem in berita:
         des = str(sistem[3])
         des = textwrap.shorten(des,width=75, placeholder="...")
+        
         list_data = {
             'id': str(sistem[0]),
             'judul': str(sistem[1]),
             'gambar': str(sistem[2]),
             'deskripsi': des,
             'deskripsifull': str(sistem[3]),
-            'tanggal': str(sistem[4])
+            'tanggal': str(sistem[4]),
+            'link': str(sistem[5]),
         }
         info_list.append(list_data)
     return render_template('homepage.html',info_list = info_list)
-@app.route('/berita/<judul>')
-def detail_berita(judul):
+@app.route('/berita/<link>')
+def detail_berita(link):
     con = mysql.connection.cursor()
-    con.execute("SELECT * FROM berita where judul = %s order by id DESC " , (judul,))
+    con.execute("SELECT * FROM berita where link = %s order by id DESC " , (link,))
     berita = con.fetchall()
     info_list = []
     for sistem in berita:
