@@ -1,6 +1,7 @@
 from . import app,mysql
 from flask import render_template, request, jsonify, redirect, url_for
 import os
+import uuid
 import textwrap
 from PIL import Image
 from io import BytesIO
