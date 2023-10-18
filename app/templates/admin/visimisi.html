@@ -39,12 +39,13 @@
             <div class="card-body">
               <!-- Create the editor container -->
               <div id= "editor" style="height: 300px">
-                <p name="visi" id="val">{{info_list[0]['visi']}}</p>
+                <p name="visi" id="val">{{info_list[0]['visi']|safe}}</p>
               </div>
             </div>
             <div class="p-3 border-top">
               <div class="text-end">
                 <button
+                id="submit"
                   type="submit"
                   class="
                     btn btn-info
@@ -82,13 +83,14 @@
           <div class="card-body">
             <!-- Create the editor container -->
             <div  id= "edit" style="height: 300px">
-              <p name="visi" id="val">{{info_list[0]['misi']}}</p>
+              <p name="visi" id="val">{{info_list[0]['misi']|safe}}</p>
             </div>
           </div>
           <div class="p-3 border-top">
             <div class="text-end">
               <button
-                type="submit2"
+              id="submit2"
+                type="submit"
                 class="
                   btn btn-info
                   rounded-pill
@@ -123,7 +125,7 @@
             theme: "snow",
           });
           $( "#submit" ).on( "click", function() {
-            var value = quill.container.getText
+            var value = quill.root.innerHTML
             console.log(String(value))
             var formData = {
                 visi: String(value)
@@ -131,7 +133,28 @@
               console.log(formData)
               $.ajax({
                 type: "POST",
-                url: "/admin/visimisiedit",
+                url: "/admin/visiedit",
+                data: formData,
+                dataType: "json",
+                encode: true,
+              }).done(function (data) {
+                console.log(data);
+              });
+              event.preventDefault();
+          } );
+        var quilll = new Quill("#edit", {
+            theme: "snow",
+          });
+          $( "#submit2" ).on( "click", function() {
+            var value = quilll.root.innerHTML
+            console.log(String(value))
+            var formData = {
+                misi: String(value)
+              };
+              console.log(formData)
+              $.ajax({
+                type: "POST",
+                url: "/admin/misiedit",
                 data: formData,
                 dataType: "json",
                 encode: true,
@@ -144,10 +167,6 @@
         
 </script>
 <script>
-    $(document).ready(function () {
-        var quill = new Quill("#edit", {
-            theme: "snow",
-          });
-        });
+    
 </script>
 {% endblock %}

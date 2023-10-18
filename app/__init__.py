@@ -20,5 +20,4 @@ jwt = JWTManager(app)
 mysql.init_app(app)
 CORS(app)
 
-
 from . import infodesa, surat, berita, dana, login, warga, umkm, apihalaman
