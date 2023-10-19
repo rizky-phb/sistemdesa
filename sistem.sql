@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Okt 2023 pada 20.39
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Generation Time: Oct 19, 2023 at 04:29 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `berita`
+-- Table structure for table `berita`
 --
 
 CREATE TABLE `berita` (
@@ -37,7 +37,7 @@ CREATE TABLE `berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `berita`
+-- Dumping data for table `berita`
 --
 
 INSERT INTO `berita` (`id`, `judul`, `gambar`, `deskripsi`, `tanggal`, `link`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `berita` (`id`, `judul`, `gambar`, `deskripsi`, `tanggal`, `link`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dana`
+-- Table structure for table `dana`
 --
 
 CREATE TABLE `dana` (
@@ -63,7 +63,7 @@ CREATE TABLE `dana` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `dana`
+-- Dumping data for table `dana`
 --
 
 INSERT INTO `dana` (`id`, `tahun`, `gambar`, `total_anggaran`, `realisasi`, `lebih`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `dana` (`id`, `tahun`, `gambar`, `total_anggaran`, `realisasi`, `leb
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `monografi`
+-- Table structure for table `monografi`
 --
 
 CREATE TABLE `monografi` (
@@ -97,7 +97,7 @@ CREATE TABLE `monografi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `monografi`
+-- Dumping data for table `monografi`
 --
 
 INSERT INTO `monografi` (`id`, `tahun`, `jpenduduk`, `jkk`, `laki`, `perempuan`, `jkkprese`, `jkkseja`, `jkkkaya`, `jkksedang`, `jkkmiskin`, `islam`, `kristen`, `protestan`, `katolik`, `hindu`, `budha`) VALUES
@@ -107,7 +107,7 @@ INSERT INTO `monografi` (`id`, `tahun`, `jpenduduk`, `jkk`, `laki`, `perempuan`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sejarah_desa`
+-- Table structure for table `sejarah_desa`
 --
 
 CREATE TABLE `sejarah_desa` (
@@ -118,16 +118,16 @@ CREATE TABLE `sejarah_desa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `sejarah_desa`
+-- Dumping data for table `sejarah_desa`
 --
 
 INSERT INTO `sejarah_desa` (`id`, `sejarah`, `visi`, `misi`) VALUES
-(1, '<p><strong>Pada Tahun 1942</strong> Tegal kembali menjadi Kabupaten lagi, setelah sebelumnya bergantiganti fungsi sebagai Karesidenan. Pangkah merupakan salah satu Kawedanan. Sedagkan kawedanan yang lain pada sat itu adlah Slawi, Adiwerna, Balapulang, dan Bumijawa. Pada era awal kemerdekaan ,Pangkah dijadikan salah satu wilayah cabang gesadassadadadrakan tiga daerah , yaitu Brebes, Tegal dan Pemalang. Pangkah makin hari makin ramai dengan bertambahnya buruh pabrik.Pada walnya Desa Pangkah terbentuk dari Pedukuhan Pesawahan, Benda, Kauman,Sabrang, Posong, Wungu. Sekitar tahun 1985 berdiri komplek perumahan oleh pengembang yang dikenaldengan Griya Pangkah Indah (Gripin). Pemukiman tersebut kemudian masuk menjadi pedukuhan di desa pangkah dengan nama dukuh waringin. Sebagai pusat ibukota kecamatan ,perkembangan desa Pangkah sangat pesat.</p>', 'Terbangunnya tata kelola pemerintahan desa yang baik, bersih, dan jujur serta melayani masyarakat desa Pangkah secara menyeluruh demi terwujudnya desa Pangkah yang maju dan sejahtera yang berakar pada nilai Pancasila serta budaya dan agama\r\n', '[\'[\\\'[\\\\\\\'[\\\\\\\\\\\\\\\'[\"[\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Meningkatkan kapasitas kelembagan dan sumber daya aparatur pemerintab desa\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\r\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ndemi terwujudnya lembaga yang bisa\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\r\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\nberperan sesuai tugas dan fungsinya,\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\r\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\nsehingga dapat memberikan pelayanan yang\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\r\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\nterbaik kepada masyarakat\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Meningkatkan kesehatan, kebersihan desa serta mengusahakan Jaminan Kesehatan masyarakat melalui program pemerintah.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Mengoptimalkan kinerja di aparatur pemerintah desa secaraa maksimal sesuaai dengan tugas pokok fungsi agar tercapai pelayanana yang baik kepada masyarakat.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Mewujudkan pemerintahan desa yang baik dan bersih melalui peningkatan pelayanan pemerintahan umum.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Meningkatkan kesejahteraan masyarakat desa dengan mewujudkan Badan Usaha Milik Desa (BUMDes) untuk membuka lapangan kerja bagi masyarakat desa, serta meningkatkan produksi rumah tangga kecil. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Memberdayakan SDMyang sudah ada dan memberikan ruang bagi generasi muda melalui wadah Karang Taruna yang berbasis pada IPTEK dan Kearifan budaya lokal. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Meningkatkan kerukunan, toleransi, dan kebersamaan dalam kehidupan masyarakat desa Pangkah. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Pemeliharaan, perbaikan, dan pengadan sarana dan prasarana fasilitas lingkungan dengn mengedepankan prinsip prioritas kebermanfatan. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Pemetaan potensi dan sumber dayaa untuk mengidentifikasi kekuatan, kelemahan, ancaman, dan peluang, bagi terciptanya masyarakat Pangkah yang sejahtera. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Peningkatan usaha-usaha budidaya dan promosi kuliner makanan dan jajanan warga desa Pangkah untuk meningkatkan kesehahteraan. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Mengelola sumber pendapatan non PAD secara jujur, transparan, dan proporsional untuk kesejahteraan masyarakat. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Meningkatkan usah-usaha pertanian, perdagangan, uintukkesejaahteraan masyarakat. \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\', \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'Mewujudkan Pemerintah Desa Pangkah yang baik dan bersih 9 good govermance) melalui peningkatan pelayanan pemerintahan umum\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\r\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\']\"]\\\\\\\\\\\\\\\']\\\\\\\']\\\']\']');
+(1, '<p><strong>Pada Tahun 1942</strong> Tegal kembali menjadi Kabupaten lagi, setelah sebelumnya bergantiganti fungsi sebagai Karesidenan. Pangkah merupakan salah satu Kawedanan. Sedagkan kawedanan yang lain pada sat itu adlah Slawi, Adiwerna, Balapulang, dan Bumijawa. Pada era awal kemerdekaan ,Pangkah dijadikan salah satu wilayah cabang gesadassadadadrakan tiga daerah , yaitu Brebes, Tegal dan Pemalang. Pangkah makin hari makin ramai dengan bertambahnya buruh pabrik.Pada walnya Desa Pangkah terbentuk dari Pedukuhan Pesawahan, Benda, Kauman,Sabrang, Posong, Wungu. Sekitar tahun 1985 berdiri komplek perumahan oleh pengembang yang dikenaldengan Griya Pangkah Indah (Gripin). Pemukiman tersebut kemudian masuk menjadi pedukuhan di desa pangkah dengan nama dukuh waringin. Sebagai pusat ibukota kecamatan ,perkembangan desa Pangkah sangat pesat.</p>', '<p>wdaTerbangunnya tata kelola pemerintahan desa yang baik, bersih, dan jujur serta melayani masyarakat desa Pangkah secara menyeluruh demi terwujudnya desa Pangkah yang maju dan sejahtera yang berakar pada nilai Pancasila serta budaya dan agama</p>', '<p>blablahjkjansjw</p><p> dwkqnd</p><p> cwq kc qw\'c \' \' q\' wk; s</p><p> </p><p>1</p><p>2kmsak</p><ol><li>saodm</li><li>awmd </li><li>dmwo</li></ol>');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `surat`
+-- Table structure for table `surat`
 --
 
 CREATE TABLE `surat` (
@@ -138,7 +138,7 @@ CREATE TABLE `surat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `surat`
+-- Dumping data for table `surat`
 --
 
 INSERT INTO `surat` (`id`, `nama`, `hp`, `keterangan`) VALUES
@@ -148,7 +148,7 @@ INSERT INTO `surat` (`id`, `nama`, `hp`, `keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tanah`
+-- Table structure for table `tanah`
 --
 
 CREATE TABLE `tanah` (
@@ -160,7 +160,7 @@ CREATE TABLE `tanah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tanah`
+-- Dumping data for table `tanah`
 --
 
 INSERT INTO `tanah` (`id`, `luas`, `sawahteri`, `sawahhu`, `pemukiman`) VALUES
@@ -169,7 +169,7 @@ INSERT INTO `tanah` (`id`, `luas`, `sawahteri`, `sawahhu`, `pemukiman`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_admin`
+-- Table structure for table `user_admin`
 --
 
 CREATE TABLE `user_admin` (
@@ -179,7 +179,7 @@ CREATE TABLE `user_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user_admin`
+-- Dumping data for table `user_admin`
 --
 
 INSERT INTO `user_admin` (`id`, `username`, `password`) VALUES
@@ -189,7 +189,7 @@ INSERT INTO `user_admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `wilayah`
+-- Table structure for table `wilayah`
 --
 
 CREATE TABLE `wilayah` (
@@ -201,7 +201,7 @@ CREATE TABLE `wilayah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `wilayah`
+-- Dumping data for table `wilayah`
 --
 
 INSERT INTO `wilayah` (`id`, `utara`, `selatan`, `timur`, `barat`) VALUES
@@ -212,102 +212,102 @@ INSERT INTO `wilayah` (`id`, `utara`, `selatan`, `timur`, `barat`) VALUES
 --
 
 --
--- Indeks untuk tabel `berita`
+-- Indexes for table `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `dana`
+-- Indexes for table `dana`
 --
 ALTER TABLE `dana`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `monografi`
+-- Indexes for table `monografi`
 --
 ALTER TABLE `monografi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `sejarah_desa`
+-- Indexes for table `sejarah_desa`
 --
 ALTER TABLE `sejarah_desa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `surat`
+-- Indexes for table `surat`
 --
 ALTER TABLE `surat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tanah`
+-- Indexes for table `tanah`
 --
 ALTER TABLE `tanah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_admin`
+-- Indexes for table `user_admin`
 --
 ALTER TABLE `user_admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indeks untuk tabel `wilayah`
+-- Indexes for table `wilayah`
 --
 ALTER TABLE `wilayah`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `berita`
+-- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `dana`
+-- AUTO_INCREMENT for table `dana`
 --
 ALTER TABLE `dana`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `monografi`
+-- AUTO_INCREMENT for table `monografi`
 --
 ALTER TABLE `monografi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `sejarah_desa`
+-- AUTO_INCREMENT for table `sejarah_desa`
 --
 ALTER TABLE `sejarah_desa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `surat`
+-- AUTO_INCREMENT for table `surat`
 --
 ALTER TABLE `surat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tanah`
+-- AUTO_INCREMENT for table `tanah`
 --
 ALTER TABLE `tanah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `user_admin`
+-- AUTO_INCREMENT for table `user_admin`
 --
 ALTER TABLE `user_admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `wilayah`
+-- AUTO_INCREMENT for table `wilayah`
 --
 ALTER TABLE `wilayah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
