@@ -11,10 +11,19 @@
                 ><i class="ri-home-3-line fs-5"></i
               ></a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">SEJARAH & MONOGRAFI DESA</li>
+            <li class="breadcrumb-item active" aria-current="page">PEMERINTAHAN DESA</li>
           </ol>
         </nav>
-        <h1 class="mb-0 fw-bold">SEJARAH & MONOGRAFI DESA</h1>
+        <h1 class="mb-0 fw-bold">PEMERINTAHAN DESA</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" >
+    <div class="row">
+      <div class="col-12">
+        <!-- Row -->
+       
+        <!-- Row -->
       </div>
     </div>
   </div>
@@ -26,15 +35,41 @@
     
     <div class="row">
       <div class="col-lg-8">
-    <div style="margin: 0px">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Sejarah:</h4>
+        <div class="row">
+            <!-- Column -->
+            {% for i in info_list :%}
+            <div class="col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top img-responsive"
+                  src="../static/image/{{i.gambar}}"
+                  alt="Card image cap"
+                />
+                <div class="card-body">
+                  <div class="d-flex no-block align-items-center mb-3">
+                    <span class="d-flex align-items-center"
+                      ><i data-feather="calendar" class="feather-sm me-1"></i
+                      >{{i.status}}</span
+                    >
+                  </div>
+                  <h3 class="font-weight-medium">{{i.nama_lengkap}}</h3>
+                  <p class="mb-0 mt-2 text-muted">{{i.jabatan}}</p>
+                  
+                  <!---->
+              </button>
+              <!-- Modal Edit-->
+            
+              <!-- Modal tambah -->
+          
+                  <!---->
+                </div>
+              </div>
+            </div>
+            <!-- Column -->
   
-          {{info_list[0]['sejarah']|safe}}
-        </div>
-      </div>
-    </div>
+            {% endfor %}
+          </div>
+   
     </div>
     <div class="col-lg-4 mt-4 mt-md-0">
       <div class="card">

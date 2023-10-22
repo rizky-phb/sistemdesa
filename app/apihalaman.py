@@ -7,10 +7,33 @@ from io import BytesIO
 import locale
 import uuid
 
+#halaman homepage
 @app.route('/')
 def homepage():
     con = mysql.connection.cursor()
     con.execute("SELECT * FROM berita order by id DESC")
+    berita = con.fetchall()
+    info_list = []
+    for sistem in berita:
+        des = str(sistem[3])
+        des = textwrap.shorten(des,width=75, placeholder="...")
+        
+        list_data = {
+            'id': str(sistem[0]),
+            'judul': str(sistem[1]),
+            'gambar': str(sistem[2]),
+            'deskripsi': des,
+            'deskripsifull': str(sistem[3]),
+            'tanggal': str(sistem[4]),
+            'link': str(sistem[5]),
+        }
+        info_list.append(list_data)
+    return render_template('homepage.html',info_list = info_list)
+#halaman berita
+@app.route('/berita/<link>')
+def detail_berita(link):
+    con = mysql.connection.cursor()
+    con.execute("SELECT * FROM berita where link = %s order by id DESC " , (link,))
     berita = con.fetchall()
     info_list = []
     for sistem in berita:
@@ -25,8 +48,72 @@ def homepage():
             'tanggal': str(sistem[4])
         }
         info_list.append(list_data)
-    return render_template('homepage.html',info_list = info_list)
+    return render_template('detail_berita.html',info_list = info_list)
+#halaman sejarah
+@app.route('/sejarah')
+def sejarah():
+    con = mysql.connection.cursor()
+    con.execute("SELECT * FROM sejarah_desa")
+    sejarah = con.fetchall()
+    print(sejarah)
+    info_list = []
+    for sistem in sejarah:
+        print(sistem)
+        list_data = {
+            'id': str(sistem[0]),
+            'sejarah': str(sistem[1])
+        }
+        info_list.append(list_data)
+    return render_template("sejarah.html", info_list = info_list)
 
+#halaman visi misi
+@app.route('/visi_misi')
+def visi_misi():
+    con = mysql.connection.cursor()
+    con.execute("SELECT * FROM sejarah_desa")
+    sejarah = con.fetchall()
+    print(sejarah)
+    info_list = []
+    for sistem in sejarah:
+        print(sistem)
+        list_data = {
+            'id': str(sistem[0]),
+            'visi': str(sistem[2]),
+            'misi': sistem[3],
+        }
+        info_list.append(list_data)
+    return render_template("visimisi.html", info_list = info_list)
+
+#halaman sejarah
+@app.route('/pemerintahan_desa')
+def pemerintahan_desa():
+    con = mysql.connection.cursor()
+    con.execute("SELECT * FROM anggota order by id")
+    anggota = con.fetchall()
+    info_list = []
+    
+    for sistem in anggota:
+        print(str(sistem[1]))
+        list_data = {
+            'id': str(sistem[0]),
+            'nama_lengkap': str(sistem[1]),
+            'gambar': str(sistem[2]),
+            'jabatan': str(sistem[3]),
+            'niap': str(sistem[4]),
+            'ttl': str(sistem[5]),
+            'agama': str(sistem[6]),
+            'golongan': str(sistem[7]),
+            'pendidikan_terakhir': str(sistem[8]),
+            'nomorsk': str(sistem[9]),
+            'tanggalsk': str(sistem[10]),
+            'masa_jabatan': str(sistem[11]),
+            'status': str(sistem[12])
+        }
+        info_list.append(list_data)
+    return render_template("pemerintahan_desa.html", info_list = info_list)
+        
+
+#halaman admin
 @app.route('/admin')
 def admin():
     return render_template("admin/login.html")
@@ -44,7 +131,7 @@ def admininfodesa():
             'id': str(sistem[0]),
             'sejarah': str(sistem[1]),
             'visi': str(sistem[2]),
-            'misi': sistem[3].split('","')
+            'misi': sistem[3]
         }
         info_list.append(list_data)
     return render_template("admin/infodesa.html", info_list = info_list)
@@ -77,7 +164,7 @@ def adminvisimisi():
             'id': str(sistem[0]),
             'sejarah': str(sistem[1]),
             'visi': str(sistem[2]),
-            'misi': sistem[3].split('","')
+            'misi': sistem[3]
         }
         info_list.append(list_data)
     return render_template("admin/visimisi.html", info_list = info_list)
