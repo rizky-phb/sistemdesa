@@ -1,38 +1,16 @@
 from . import app,mysql
 from flask import render_template, request, jsonify, redirect, url_for
 import os
-import uuid
 import textwrap
 from PIL import Image
 from io import BytesIO
 import locale
-import urllib.parse
-##======================================================== halaman user ===============================================================
+import uuid
+
 @app.route('/')
 def homepage():
     con = mysql.connection.cursor()
     con.execute("SELECT * FROM berita order by id DESC")
-    berita = con.fetchall()
-    info_list = []
-    for sistem in berita:
-        des = str(sistem[3])
-        des = textwrap.shorten(des,width=75, placeholder="...")
-        
-        list_data = {
-            'id': str(sistem[0]),
-            'judul': str(sistem[1]),
-            'gambar': str(sistem[2]),
-            'deskripsi': des,
-            'deskripsifull': str(sistem[3]),
-            'tanggal': str(sistem[4]),
-            'link': str(sistem[5]),
-        }
-        info_list.append(list_data)
-    return render_template('homepage.html',info_list = info_list)
-@app.route('/berita/<link>')
-def detail_berita(link):
-    con = mysql.connection.cursor()
-    con.execute("SELECT * FROM berita where link = %s order by id DESC " , (link,))
     berita = con.fetchall()
     info_list = []
     for sistem in berita:
@@ -47,25 +25,8 @@ def detail_berita(link):
             'tanggal': str(sistem[4])
         }
         info_list.append(list_data)
-    return render_template('detail_berita.html',info_list = info_list)
-@app.route('/sejarah')
-def sejarah():
-    con = mysql.connection.cursor()
-    con.execute("SELECT * FROM sejarah_desa")
-    sejarah = con.fetchall()
-    print(sejarah)
-    info_list = []
-    for sistem in sejarah:
-        print(sistem)
-        list_data = {
-            'id': str(sistem[0]),
-            'sejarah': str(sistem[1]),
-            'visi': str(sistem[2]),
-            'misi': sistem[3].split('","')
-        }
-        info_list.append(list_data)
-    return render_template("sejarah.html", info_list = info_list)
-##=================================================== halaman admin =============================================================================
+    return render_template('homepage.html',info_list = info_list)
+
 @app.route('/admin')
 def admin():
     return render_template("admin/login.html")
@@ -116,27 +77,19 @@ def adminvisimisi():
             'id': str(sistem[0]),
             'sejarah': str(sistem[1]),
             'visi': str(sistem[2]),
-            'misi': str(sistem[3])
+            'misi': sistem[3].split('","')
         }
         info_list.append(list_data)
     return render_template("admin/visimisi.html", info_list = info_list)
 
-@app.route('/admin/visiedit', methods=['POST'])
-def adminvisiedit():
+@app.route('/admin/visimisiedit', methods=['POST'])
+def adminvisimisiedit():
     con = mysql.connection.cursor()
     visi = request.form['visi']
-    print(visi)
-    con.execute("UPDATE sejarah_desa SET visi = %s WHERE id = 1",(visi,))
+    con.execute("UPDATE sejarah_desa SET visi= %s WHERE id = 1",(str(visi)))
     mysql.connection.commit()
     return redirect(url_for("adminvisimisi"))
-@app.route('/admin/misiedit', methods=['POST'])
-def adminmisiedit():
-    con = mysql.connection.cursor()
-    misi = request.form['misi']
-    print(misi)
-    con.execute("UPDATE sejarah_desa SET misi = %s WHERE id = 1",(misi,))
-    mysql.connection.commit()
-    return redirect(url_for("adminvisimisi"))    
+    
 
 
 #berita
@@ -402,3 +355,129 @@ def adminmonoedit():
     ))
         mysql.connection.commit()
         return redirect(url_for("adminmono"))
+    
+#anggota
+@app.route('/admin/anggota')
+def adminanggota():
+    con = mysql.connection.cursor()
+    con.execute("SELECT * FROM anggota order by id")
+    anggota = con.fetchall()
+    info_list = []
+    
+    for sistem in anggota:
+        print(str(sistem[1]))
+        list_data = {
+            'id': str(sistem[0]),
+            'nama_lengkap': str(sistem[1]),
+            'gambar': str(sistem[2]),
+            'jabatan': str(sistem[3]),
+            'niap': str(sistem[4]),
+            'ttl': str(sistem[5]),
+            'agama': str(sistem[6]),
+            'golongan': str(sistem[7]),
+            'pendidikan_terakhir': str(sistem[8]),
+            'nomorsk': str(sistem[9]),
+            'tanggalsk': str(sistem[10]),
+            'masa_jabatan': str(sistem[11]),
+            'status': str(sistem[12])
+        }
+        info_list.append(list_data)
+        
+
+    return render_template("admin/anggota.html", info_list = info_list)
+
+@app.route('/admin/tambah_anggota', methods=['POST'])
+def tambah_anggota():
+    con = mysql.connection.cursor()
+    nama_lengkap = request.form['nama_lengkap']
+    try:
+        
+        if request.files['gambar']:
+            file = request.files['gambar']
+            print(file)
+            img = Image.open(file)
+            img = img.convert('RGB')
+            # Resize gambar
+            width, height = 400, 700 # Atsesuai kebutuhan Anda
+            img = img.resize((width, height))
+                        
+
+            # Simpan gambar yang diresize BytesIO
+            img_io = BytesIO()
+            img.save(img_io, 'JPEG', quality=70)
+            img_io.seek(0)
+            random_name = uuid.uuid4().hex+".jpg"
+            print(random_name)
+            destination = os.path.join(app.config['UPLOAD_FOLDER'], random_name)
+            img.save(destination)  # Ganti dengan lokasi penyimpanan yang diinginkan      
+                    # Gunakan img_io atau file yang telah diresize sesuai kebutuhan Anda
+        else:
+            random_name = "default.jpg"
+    except:
+        random_name = "default.jpg"
+    jabatan = request.form['jabatan']
+    niap = request.form['niap']
+    ttl = request.form['ttl']
+    agama = request.form['agama']
+    golongan = request.form['golongan']
+    pendidikan_terakhir = request.form['pendidikan_terakhir']
+    nomorsk = request.form['nomorsk']
+    tanggalsk = request.form['tanggalsk']
+    masa_jabatan = request.form['masa_jabatan']
+    status = request.form['status']
+    
+    con.execute("INSERT INTO anggota (nama_lengkap, gambar , jabatan,niap,ttl,agama,golongan,pendidikan_terakhir,nomorsk,tanggalsk,masa_jabatan,status ) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(nama_lengkap,random_name,jabatan,niap,ttl,agama,golongan,pendidikan_terakhir,nomorsk,tanggalsk,masa_jabatan,status))
+    mysql.connection.commit()
+    return jsonify("msg : SUKSES")
+##edit_anggota
+@app.route('/admin/edit_anggota', methods=['POST'])
+def edit_anggota():
+    con = mysql.connection.cursor()
+    id = request.form['id']
+    nama_lengkap = request.form['nama_lengkap']
+    try:
+        if request.files['gambar']:
+            file = request.files['gambar']
+            con.execute("SELECT gambar FROM anggota WHERE id = %s", (id,))
+            result = con.fetchone()
+                        
+            img = Image.open(file)
+            img = img.convert('RGB')
+            # Resize gambar
+            width, height = 600, 300  # Atur sesuai kebutuhan Anda
+            img = img.resize((width, height))
+
+            # Simpan gambar yang diresize ke BytesIO
+            img_io = BytesIO()
+            img.save(img_io, 'JPEG', quality=70)
+            img_io.seek(0)
+            random_name = uuid.uuid4().hex+".jpg"
+            destination = os.path.join(app.config['UPLOAD_FOLDER'], random_name)
+            img.save(destination)  # Ganti dengan lokasi penyimpanan yang diinginkan
+            jabatan = request.form['jabatan']
+            niap = request.form['niap']
+            ttl = request.form['ttl']
+            agama = request.form['agama']
+            golongan = request.form['golongan']
+            pendidikan_terakhir = request.form['pendidikan_terakhir']
+            nomorsk = request.form['nomorsk']
+            tanggalsk = request.form['tanggalsk']
+            masa_jabatan = request.form['masa_jabatan']
+            status = request.form['status']
+            con.execute("UPDATE anggota SET nama_lengkap = %s, gambar = %s, jabatan = %s, niap = %s, ttl = %s, agama = %s, golongan = %s, pendidikan_terakhir = %s, nomorsk = %s, tanggalsk = %s, masa_jabatan = %s, status = %s WHERE id = %s",(nama_lengkap,random_name,jabatan,niap,ttl,agama,golongan,pendidikan_terakhir,nomorsk,tanggalsk,masa_jabatan,status,id))
+            mysql.connection.commit()
+            # Gunakan img_io atau file yang telah diresize sesuai kebutuhan Anda
+    except:
+        jabatan = request.form['jabatan']
+        niap = request.form['niap']
+        ttl = request.form['ttl']
+        agama = request.form['agama']
+        golongan = request.form['golongan']
+        pendidikan_terakhir = request.form['pendidikan_terakhir']
+        nomorsk = request.form['nomorsk']
+        tanggalsk = request.form['tanggalsk']
+        masa_jabatan = request.form['masa_jabatan']
+        status = request.form['status']
+        con.execute("UPDATE anggota SET nama_lengkap = %s, jabatan = %s, niap = %s, ttl = %s, agama = %s, golongan = %s, pendidikan_terakhir = %s, nomorsk = %s, tanggalsk = %s, masa_jabatan = %s, status = %s WHERE id = %s",(nama_lengkap,jabatan,niap,ttl,agama,golongan,pendidikan_terakhir,nomorsk,tanggalsk,masa_jabatan,status,id))
+        mysql.connection.commit()
+    return jsonify({"msg" : "SUKSES"})
