@@ -568,3 +568,11 @@ def edit_anggota():
         con.execute("UPDATE anggota SET nama_lengkap = %s, jabatan = %s, niap = %s, ttl = %s, agama = %s, golongan = %s, pendidikan_terakhir = %s, nomorsk = %s, tanggalsk = %s, masa_jabatan = %s, status = %s WHERE id = %s",(nama_lengkap,jabatan,niap,ttl,agama,golongan,pendidikan_terakhir,nomorsk,tanggalsk,masa_jabatan,status,id))
         mysql.connection.commit()
     return jsonify({"msg" : "SUKSES"})
+# admin agenda 
+@app.route('/admin/agenda')
+def admin_agenda():
+    con = mysql.connection.cursor()
+    con.execute("SELECT * FROM agenda")
+    result = con.fetchall()
+    print(result)
+    return render_template('admin/agenda.html',list_agenda=result)
